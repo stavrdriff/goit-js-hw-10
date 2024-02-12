@@ -1,0 +1,15 @@
+// base styles
+@import './reset';
+@import './root';
+@import './base';
+@import './mixins';
+
+// libraries
+@import '../../node_modules/simplelightbox/dist/simple-lightbox.min';
+
+// components styles
+@import './section';
+@import './container';
+@import '../partials/navigation/scss/navigation';
+@import '../partials/form/scss/form';
+@import '../partials/gallery/scss/gallery';
