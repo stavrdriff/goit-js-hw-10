@@ -2756,6 +2756,7 @@ span.flatpickr-weekday {
 .form fieldset:disabled {
   --color-input-border: var(--color-input-border);
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 [data-start], .form [type=submit] {
