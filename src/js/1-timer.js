@@ -38,7 +38,7 @@ const initTimer = (days, hours, minutes, seconds) => {
 
 const errorMessage = () => {
   iziToast.error({
-    class: 'error-message',
+    class: 'popup-message',
     theme: 'dark',
     backgroundColor: '#ef4040',
     messageColor: '#fff',
