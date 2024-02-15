@@ -8,15 +8,15 @@ const popupHandler = (delay, state) => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (state === 'fulfilled') {
-        resolve();
+        resolve(`Fulfilled promise in ${delay}ms`);
       } else {
-        reject();
+        reject(`Rejected promise in ${delay}ms`);
       }
     }, delay);
   });
 
   promise
-    .then(() => {
+    .then((value) => {
       iziToast.success({
         class: 'popup-message',
         theme: 'dark',
@@ -26,10 +26,10 @@ const popupHandler = (delay, state) => {
         position: 'topRight',
         pauseOnHover: true,
         timeout: 3000,
-        message: `Fulfilled promise in ${delay}ms`,
+        message: value,
       })
     })
-    .catch(() => {
+    .catch((value) => {
         iziToast.error({
         class: 'popup-message',
         theme: 'dark',
@@ -39,7 +39,7 @@ const popupHandler = (delay, state) => {
         position: 'topRight',
         pauseOnHover: true,
         timeout: 3000,
-        message: `Rejected promise in ${delay}ms`,
+        message: value,
       })
     })
 }
