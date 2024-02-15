@@ -11,14 +11,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400;1,500&display=swap"
     rel="stylesheet">
   
-  <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-50ec0551.css">
+  <script type="module" crossorigin src="/goit-js-hw-10/commonHelpers2.js"></script>
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/modulepreload-polyfill-3cfb730f.js">
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-9808d4ac.js">
+  <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-06544b41.css">
 </head>
 
 <body>
   <section class="section">
     <div class="container">
       <div class="section__heading">
-        <h1>Snackbar - goit-js-hw-10 - TimSolo</h1>
+        <h1>Генератор промісів - goit-js-hw-10 - TimSolo</h1>
       </div>
       <div class="section__content">
         <nav class="navigation">
@@ -27,18 +30,38 @@
       <a class="navigation__link" href="./index.html">Головна</a>
     </li>
     <li class="navigation__item">
-      <a class="navigation__link" href="./1-timer.html">Таймер</a>
+      <a class="navigation__link" href="./1-timer.html">Таймер зворотного відліку</a>
     </li>
     <li class="navigation__item">
-      <a class="navigation__link" href="./2-snackbar.html">Бар снеків )))</a>
+      <a class="navigation__link" href="./2-snackbar.html">Генератор промісів</a>
     </li>
   </ul>
 </nav>
+        <form class="form">
+  <label>
+    Delay (ms)
+    <input type="number" name="delay" required />
+  </label>
+
+  <fieldset>
+    <legend>State</legend>
+    <label>
+      <input type="radio" name="state" value="fulfilled" required />
+      Fulfilled
+    </label>
+    <label>
+      <input type="radio" name="state" value="rejected" required />
+      Rejected
+    </label>
+  </fieldset>
+
+  <button type="submit">Create notification</button>
+</form>
       </div>
     </div>
   </section>
 
-  <!-- <script type="module" src="./js/2-snackbar.js"></script> -->
+  
 </body>
 
 </html>
