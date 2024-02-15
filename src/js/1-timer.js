@@ -51,10 +51,24 @@ const errorMessage = () => {
   });
 }
 
+const mobileInputAttrs = (state) => {
+  const input = document.querySelector('.flatpickr-input.flatpickr-mobile');
+
+  if (!input) {
+    return;
+  }
+
+  state ? input.setAttribute('readonly', '') : input.removeAttribute('readonly');
+}
+
 const timerHandler = (selectedDate, input, trigger) => {
   trigger.removeAttribute('disabled');
   input.removeAttribute('disabled');
   let intervalID;
+  let state = isNaN(selectedDate) ? false : true;
+
+  mobileInputAttrs(state);
+  console.log(state)
 
   trigger.addEventListener('click', () => {
     trigger.setAttribute('disabled', '');
@@ -86,7 +100,7 @@ const initInputTimer = () => {
     dateFormat: 'Y-m-d h:m',
     onClose(selectedDates) {
       userSelectedDate = selectedDates[0];
-      if (userSelectedDate <= Date.now()) {
+      if (userSelectedDate <= Date.now() || isNaN(userSelectedDate)) {
         trigger.setAttribute('disabled', '');
         errorMessage();
       } else {
