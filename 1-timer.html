@@ -11,7 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;1,400;1,500&display=swap"
     rel="stylesheet">
   
-  <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-8a80cb4b.css">
+  <script type="module" crossorigin src="/goit-js-hw-10/commonHelpers.js"></script>
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-9808d4ac.js">
+  <link rel="stylesheet" href="/goit-js-hw-10/assets/styles-d6464d38.css">
 </head>
 
 <body>
@@ -34,32 +36,35 @@
     </li>
   </ul>
 </nav>
-        <input type="text" id="datetime-picker" />
-<button type="button" data-start>Start</button>
-
-<div class="timer">
-  <div class="field">
-    <span class="value" data-days>00</span>
-    <span class="label">Days</span>
+        <div class="timer-wrapper">
+  <div class="date-input-wrapper">
+    <input type="text" id="datetime-picker" />
+    <button type="button" data-start>Start</button>
   </div>
-  <div class="field">
-    <span class="value" data-hours>00</span>
-    <span class="label">Hours</span>
-  </div>
-  <div class="field">
-    <span class="value" data-minutes>00</span>
-    <span class="label">Minutes</span>
-  </div>
-  <div class="field">
-    <span class="value" data-seconds>00</span>
-    <span class="label">Seconds</span>
+  <div class="timer">
+    <p class="field">
+      <span class="value" data-days>00</span>
+      <span class="label">Days</span>
+    </p>
+    <p class="field">
+      <span class="value" data-hours>00</span>
+      <span class="label">Hours</span>
+    </p>
+    <p class="field">
+      <span class="value" data-minutes>00</span>
+      <span class="label">Minutes</span>
+    </p>
+    <p class="field">
+      <span class="value" data-seconds>00</span>
+      <span class="label">Seconds</span>
+    </p>
   </div>
 </div>
       </div>
     </div>
   </section>
 
-  <!-- <script type=" module" src="./js/1-timer.js"></script> -->
+  
 </body>
 
 </html>
