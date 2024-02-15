@@ -1,6 +1,8 @@
 'use strict';
 
 import iziToast from "izitoast";
+import Success from '../img/checked-circle.svg';
+import Error from '../img/octagone-x-mark.svg';
 
 const popupHandler = (delay, state) => {
   const promise = new Promise((resolve, reject) => {
@@ -20,7 +22,7 @@ const popupHandler = (delay, state) => {
         theme: 'dark',
         backgroundColor: '#59A10D',
         messageColor: '#fff',
-        iconUrl: './img/checked-circle.svg',
+        iconUrl: Success,
         position: 'topRight',
         pauseOnHover: true,
         timeout: 3000,
@@ -33,7 +35,7 @@ const popupHandler = (delay, state) => {
         theme: 'dark',
         backgroundColor: '#ef4040',
         messageColor: '#fff',
-        iconUrl: './img/octagone-x-mark.svg',
+        iconUrl: Error,
         position: 'topRight',
         pauseOnHover: true,
         timeout: 3000,

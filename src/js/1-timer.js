@@ -2,6 +2,7 @@
 
 import flatpickr from "flatpickr";
 import iziToast from "izitoast";
+import Error from '../img/octagone-x-mark.svg';
 
 const stopTimer = (selectedDate, intervalID) => {
   if (selectedDate < Date.now() + 400) {
@@ -42,7 +43,7 @@ const errorMessage = () => {
     theme: 'dark',
     backgroundColor: '#ef4040',
     messageColor: '#fff',
-    iconUrl: '../img/octagone-x-mark.svg',
+    iconUrl: Error,
     position: 'topRight',
     pauseOnHover: true,
     timeout: 3000,
