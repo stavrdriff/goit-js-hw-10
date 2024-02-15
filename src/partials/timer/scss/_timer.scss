@@ -1,0 +1,95 @@
+.timer-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.date-input-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#datetime-picker {
+  @include transition(border-color);
+
+  padding: var(--padding-input);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-primary);
+  line-height:var(--line-height-primary);
+  border-width: var(--border-width-input);
+  border-style: solid;
+  border-color: var(--color-input-border);
+  border-radius: var(--global-border-radius);
+  outline: none;
+
+  &:hover {
+    --color-input-border: var(--color-input-border-hover);
+  }
+
+  &.active {
+    --color-input-border: var(--color-input-border-active);
+  }
+
+  &[disabled] {
+    --color-input-border: var(--color-input-border);
+
+    cursor: not-allowed;
+  }
+}
+
+[data-start] {
+  @include transition;
+
+  --border-width-input: 0;
+
+  padding: var(--padding-input);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-primary);
+  line-height:var(--line-height-primary);
+  font-weight: var(--font-weight-button);
+  color: var(--color-text-button);
+  border: none;
+  border-radius: var(--global-border-radius);
+  background-color: var(--color-background-button);
+  transition-property: background-color, color;
+  outline: none;
+
+  @include event {
+    --color-background-button: var(--color-background-button-hover);
+  }
+
+  &:disabled {
+    --color-background-button: var(--color-background-button-disabled);
+    --color-text-button: var(--color-text-button-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.timer {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.value {
+  display: block;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.label {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.error-message {
+  border-radius: 4px;
+  overflow: hidden;
+
+  .icon-x-octagon:before {
+    font-family: 'icomoon';
+    font-style: normal;
+    content: '\e900';
+  }
+}
