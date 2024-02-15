@@ -31,7 +31,7 @@ const initTimer = (days, hours, minutes, seconds) => {
   const minutesTarget = document.querySelector('[data-minutes]');
   const secondsTarget = document.querySelector('[data-seconds]');
 
-  daysTarget.textContent = days;
+  daysTarget.textContent = days.toString().padStart(2, '0');
   hoursTarget.textContent = hours.toString().padStart(2, '0');
   minutesTarget.textContent = minutes.toString().padStart(2, '0');
   secondsTarget.textContent = seconds.toString().padStart(2, '0');
