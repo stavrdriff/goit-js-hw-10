@@ -71,6 +71,7 @@
     --color-text-button: var(--color-text-button-disabled);
 
     cursor: not-allowed;
+    pointer-events: none !important;
   }
 }
 
