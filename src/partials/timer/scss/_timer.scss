@@ -12,6 +12,7 @@
 #datetime-picker {
   @include transition(border-color);
 
+  min-width: 280px;
   padding: var(--padding-input);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-primary);
@@ -30,7 +31,7 @@
     --color-input-border: var(--color-input-border-active);
   }
 
-  &[disabled] {
+  &:disabled {
     --color-input-border: var(--color-input-border);
 
     cursor: not-allowed;
@@ -61,6 +62,7 @@
   &:disabled {
     --color-background-button: var(--color-background-button-disabled);
     --color-text-button: var(--color-text-button-disabled);
+
     cursor: not-allowed;
   }
 }

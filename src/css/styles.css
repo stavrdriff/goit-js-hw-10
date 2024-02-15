@@ -2732,6 +2732,7 @@ span.flatpickr-weekday {
 
 #datetime-picker {
   transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 280px;
   padding: var(--padding-input);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-primary);
@@ -2748,7 +2749,7 @@ span.flatpickr-weekday {
 #datetime-picker.active {
   --color-input-border: var(--color-input-border-active);
 }
-#datetime-picker[disabled] {
+#datetime-picker:disabled {
   --color-input-border: var(--color-input-border);
   cursor: not-allowed;
 }
