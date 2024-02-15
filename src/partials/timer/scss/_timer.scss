@@ -7,16 +7,19 @@
 .date-input-wrapper {
   display: flex;
   gap: 0.5rem;
+  max-width: 355px;
 }
 
 #datetime-picker {
   @include transition(border-color);
 
   min-width: 280px;
+  width: 100%;
   padding: var(--padding-input);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-primary);
   line-height:var(--line-height-primary);
+  color: var(--color-input-text);
   border-width: var(--border-width-input);
   border-style: solid;
   border-color: var(--color-input-border);
@@ -29,10 +32,12 @@
 
   &.active {
     --color-input-border: var(--color-input-border-active);
+    --color-input-text: var(--color-input-text-active)
   }
 
   &:disabled {
-    --color-input-border: var(--color-input-border);
+    --color-input-border: var(--color-input-border-disabled);
+    --color-input-text: var(--color-input-text-disabled);
 
     cursor: not-allowed;
     pointer-events: none;

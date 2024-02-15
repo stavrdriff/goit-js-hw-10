@@ -52,6 +52,9 @@ img {
   --color-input-border-disabled: #808080;
   --border-width-input: 1px;
   --padding-input: calc(.5rem - var(--border-width-input)) calc(1rem - var(--border-width-input));
+  --color-input-text: #2E2F42;
+  --color-input-text-active: #000;
+  --color-input-text-disabled: #808080;
   --color-background-button: #4E75FF;
   --color-background-button-hover: #6C8CFF;
   --color-background-button-disabled: #CFCFCF;
@@ -2728,16 +2731,19 @@ span.flatpickr-weekday {
 .date-input-wrapper {
   display: flex;
   gap: 0.5rem;
+  max-width: 355px;
 }
 
 #datetime-picker, .form [name=delay],
 .form fieldset {
   transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 280px;
+  width: 100%;
   padding: var(--padding-input);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-primary);
   line-height: var(--line-height-primary);
+  color: var(--color-input-text);
   border-width: var(--border-width-input);
   border-style: solid;
   border-color: var(--color-input-border);
@@ -2751,10 +2757,12 @@ span.flatpickr-weekday {
 #datetime-picker.active, .form .active[name=delay],
 .form fieldset.active {
   --color-input-border: var(--color-input-border-active);
+  --color-input-text: var(--color-input-text-active) ;
 }
 #datetime-picker:disabled, .form [name=delay]:disabled,
 .form fieldset:disabled {
-  --color-input-border: var(--color-input-border);
+  --color-input-border: var(--color-input-border-disabled);
+  --color-input-text: var(--color-input-text-disabled);
   cursor: not-allowed;
   pointer-events: none;
 }
