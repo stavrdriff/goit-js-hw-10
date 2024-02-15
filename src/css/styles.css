@@ -2730,7 +2730,8 @@ span.flatpickr-weekday {
   gap: 0.5rem;
 }
 
-#datetime-picker {
+#datetime-picker, .form [name=delay],
+.form fieldset {
   transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 280px;
   padding: var(--padding-input);
@@ -2743,18 +2744,21 @@ span.flatpickr-weekday {
   border-radius: var(--global-border-radius);
   outline: none;
 }
-#datetime-picker:hover {
+#datetime-picker:hover, .form [name=delay]:hover,
+.form fieldset:hover {
   --color-input-border: var(--color-input-border-hover);
 }
-#datetime-picker.active {
+#datetime-picker.active, .form .active[name=delay],
+.form fieldset.active {
   --color-input-border: var(--color-input-border-active);
 }
-#datetime-picker:disabled {
+#datetime-picker:disabled, .form [name=delay]:disabled,
+.form fieldset:disabled {
   --color-input-border: var(--color-input-border);
   cursor: not-allowed;
 }
 
-[data-start] {
+[data-start], .form [type=submit] {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --border-width-input: 0;
   padding: var(--padding-input);
@@ -2769,10 +2773,10 @@ span.flatpickr-weekday {
   transition-property: background-color, color;
   outline: none;
 }
-[data-start]:focus, [data-start]:hover {
+[data-start]:focus, .form [type=submit]:focus, [data-start]:hover, .form [type=submit]:hover {
   --color-background-button: var(--color-background-button-hover);
 }
-[data-start]:disabled {
+[data-start]:disabled, .form [type=submit]:disabled {
   --color-background-button: var(--color-background-button-disabled);
   --color-text-button: var(--color-text-button-disabled);
   cursor: not-allowed;
@@ -2799,4 +2803,23 @@ span.flatpickr-weekday {
 .popup-message {
   border-radius: 4px;
   overflow: hidden;
+}
+
+.form {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form > label {
+  display: flex;
+  flex-direction: column;
+}
+.form [name=delay],
+.form fieldset {
+  margin: 0;
+}
+.form [type=submit] {
+  margin-top: 0.5rem;
+  width: 100%;
 }/*# sourceMappingURL=styles.css.map */
