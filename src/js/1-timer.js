@@ -26,7 +26,7 @@ const convertMs = (ms) => {
   // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
-  return initTimer(days, hours, minutes, seconds );
+  return initTimer(days, hours, minutes, seconds);
 }
 
 const initTimer = (days, hours, minutes, seconds) => {
@@ -47,9 +47,7 @@ const errorMessage = () => {
     theme: 'dark',
     backgroundColor: '#ef4040',
     messageColor: '#fff',
-    color: '#fff',
-    icon: 'icon-x-octagon',
-    iconColor: '#fff',
+    iconUrl: '../img/octagone-x-mark.svg',
     position: 'topRight',
     pauseOnHover: true,
     timeout: 3000,

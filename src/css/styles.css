@@ -2796,12 +2796,7 @@ span.flatpickr-weekday {
   text-transform: uppercase;
 }
 
-.error-message {
+.popup-message {
   border-radius: 4px;
   overflow: hidden;
-}
-.error-message .icon-x-octagon:before {
-  font-family: "icomoon";
-  font-style: normal;
-  content: "\e900";
 }/*# sourceMappingURL=styles.css.map */

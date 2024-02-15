@@ -85,13 +85,7 @@
   text-transform: uppercase;
 }
 
-.error-message {
+.popup-message {
   border-radius: 4px;
   overflow: hidden;
-
-  .icon-x-octagon:before {
-    font-family: 'icomoon';
-    font-style: normal;
-    content: '\e900';
-  }
 }

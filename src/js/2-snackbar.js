@@ -1,65 +1,54 @@
 'use strict';
 
-const FORM_KEY = 'feedback-form-state';
+import iziToast from "izitoast";
 
-const removeStorageFormData = (key) => {
-  localStorage.removeItem(key);
-}
-
-const getFormData = (form) => {
-  const email = form.email.value.trim();
-  const message = form.message.value.trim();
-
-  return { email, message };
-}
-
-const setFormData = (form, key) => {
-  const dataInStorage = getStorageFormData(key);
-
-  if (dataInStorage !== null) {
-    form.email.value = dataInStorage.email;
-    form.message.value = dataInStorage.message;
-  }
-}
-
-const setStorageFormData = (key, data) => {
-  localStorage.setItem(key, JSON.stringify(data));
-}
-
-const getStorageFormData = (key) => {
-  return JSON.parse(localStorage.getItem(key));
-}
-
-const formHandler = (form) => {
-  form.addEventListener('input', (e) => {
-    const formData = getFormData(e.currentTarget);
-
-    setStorageFormData(FORM_KEY, formData);
+const popupHandler = (delay, state) => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (state === 'fulfilled') {
+        resolve();
+      } else {
+        reject();
+      }
+    }, delay);
   });
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    !form.email.value
-      ? form.email.closest('label').firstElementChild.style.color = 'red'
-      : form.email.closest('label').firstElementChild.removeAttribute('style');
-
-    !form.message.value
-      ? form.message.closest('label').firstElementChild.style.color = 'red'
-      : form.message.closest('label').firstElementChild.removeAttribute('style');
-
-    if (form.email.value && form.message.value) {
-      console.log(getStorageFormData(FORM_KEY));
-      removeStorageFormData(FORM_KEY);
-      form.reset();
-    }
-  });
+  promise
+    .then(() => {
+      iziToast.success({
+        class: 'popup-message',
+        theme: 'dark',
+        backgroundColor: '#59A10D',
+        messageColor: '#fff',
+        iconUrl: '../img/checked-circle.svg',
+        position: 'topRight',
+        pauseOnHover: true,
+        timeout: 3000,
+        message: `Fulfilled promise in ${delay}ms`,
+      })
+    })
+    .catch(() => {
+        iziToast.error({
+        class: 'popup-message',
+        theme: 'dark',
+        backgroundColor: '#ef4040',
+        messageColor: '#fff',
+        iconUrl: '../img/octagone-x-mark.svg',
+        position: 'topRight',
+        pauseOnHover: true,
+        timeout: 3000,
+        message: `Rejected promise in ${delay}ms`,
+      })
+    })
 }
 
 const initForm = () => {
-  const form = document.querySelector('.feedback-form');
+  const form = document.querySelector('.form');
 
-  setFormData(form, FORM_KEY);
-  formHandler(form);
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    popupHandler(form.delay.value, form.state.value);
+  });
 }
 
 initForm();
