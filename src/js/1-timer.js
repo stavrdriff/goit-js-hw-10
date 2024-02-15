@@ -58,21 +58,19 @@ const mobileInputAttrs = (state) => {
     return;
   }
 
-  state ? input.setAttribute('readonly', '') : input.removeAttribute('readonly');
+  state ? input.setAttribute('disabled', '') : input.removeAttribute('disabled');
 }
 
 const timerHandler = (selectedDate, input, trigger) => {
   trigger.removeAttribute('disabled');
   input.removeAttribute('disabled');
+  mobileInputAttrs(false);
   let intervalID;
-  let state = isNaN(selectedDate) ? false : true;
-
-  mobileInputAttrs(state);
-  console.log(state)
 
   trigger.addEventListener('click', () => {
     trigger.setAttribute('disabled', '');
     input.setAttribute('disabled', '');
+    mobileInputAttrs(true);
 
     intervalID = setInterval(() => {
       convertMs(selectedDate - Date.now());
