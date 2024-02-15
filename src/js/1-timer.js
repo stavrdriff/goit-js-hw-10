@@ -3,7 +3,14 @@
 import flatpickr from "flatpickr";
 import iziToast from "izitoast";
 
-function convertMs(ms) {
+const stopTimer = (selectedDate, intervalID) => {
+  if (selectedDate < Date.now() + 400) {
+    clearInterval(intervalID);
+    intervalID = null;
+  }
+}
+
+const convertMs = (ms) => {
   // Number of milliseconds per unit of time
   const second = 1000;
   const minute = second * 60;
@@ -19,10 +26,10 @@ function convertMs(ms) {
   // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
 
-  return initTimer({ days, hours, minutes, seconds });
+  return initTimer(days, hours, minutes, seconds );
 }
 
-const initTimer = ({days, hours, minutes, seconds}) => {
+const initTimer = (days, hours, minutes, seconds) => {
   const daysTarget = document.querySelector('[data-days]');
   const hoursTarget = document.querySelector('[data-hours]');
   const minutesTarget = document.querySelector('[data-minutes]');
@@ -45,7 +52,7 @@ const errorMessage = () => {
     iconColor: '#fff',
     position: 'topRight',
     pauseOnHover: true,
-    timeout: 5000,
+    timeout: 3000,
     message: 'Please choose a date in the future'
   });
 }
@@ -56,18 +63,13 @@ const timerHandler = (selectedDate, input, trigger) => {
   let intervalID;
 
   trigger.addEventListener('click', () => {
-    if (!intervalID) {
-      trigger.setAttribute('disabled', '');
-      input.setAttribute('disabled', '');
+    trigger.setAttribute('disabled', '');
+    input.setAttribute('disabled', '');
 
-      intervalID = setInterval(() => {
-        convertMs(selectedDate - Date.now());
-      }, 1000)
-    }
-    else {
-      clearInterval(intervalID);
-      intervalID = null;
-    }
+    intervalID = setInterval(() => {
+      convertMs(selectedDate - Date.now());
+      stopTimer(selectedDate, intervalID);
+    }, 200)
   });
 }
 
