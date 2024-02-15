@@ -29,9 +29,9 @@ const initTimer = ({days, hours, minutes, seconds}) => {
   const secondsTarget = document.querySelector('[data-seconds]');
 
   daysTarget.textContent = days;
-  hoursTarget.textContent = hours;
-  minutesTarget.textContent = minutes;
-  secondsTarget.textContent = seconds;
+  hoursTarget.textContent = hours.toString().padStart(2, '0');
+  minutesTarget.textContent = minutes.toString().padStart(2, '0');
+  secondsTarget.textContent = seconds.toString().padStart(2, '0');
 }
 
 const errorMessage = () => {
