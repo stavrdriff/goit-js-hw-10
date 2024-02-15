@@ -2735,7 +2735,8 @@ span.flatpickr-weekday {
 }
 
 #datetime-picker, .form [name=delay],
-.form fieldset {
+.form fieldset,
+.flatpickr-input {
   transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 280px;
   width: 100% !important;
@@ -2751,16 +2752,19 @@ span.flatpickr-weekday {
   outline: none !important;
 }
 #datetime-picker:hover, .form [name=delay]:hover,
-.form fieldset:hover {
+.form fieldset:hover,
+.flatpickr-input:hover {
   --color-input-border: var(--color-input-border-hover);
 }
 #datetime-picker.active, .form .active[name=delay],
-.form fieldset.active {
+.form fieldset.active,
+.flatpickr-input.active {
   --color-input-border: var(--color-input-border-active);
   --color-input-text: var(--color-input-text-active) ;
 }
 #datetime-picker[disabled], .form [disabled][name=delay],
-.form fieldset[disabled] {
+.form fieldset[disabled],
+.flatpickr-input[disabled] {
   --color-input-border: var(--color-input-border-disabled);
   --color-input-text: var(--color-input-text-disabled);
   cursor: not-allowed !important;

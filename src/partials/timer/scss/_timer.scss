@@ -10,7 +10,8 @@
   max-width: 355px;
 }
 
-#datetime-picker {
+#datetime-picker,
+.flatpickr-input {
   @include transition(border-color);
 
   min-width: 280px;
